@@ -1272,9 +1272,10 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	transition: stroke-dashoffset 0.3s ease-out, stroke-opacity 0.3s ease-in;
 }
 /* ===== WA prayer places (Salah page) ===== */
-.pp { --pp-surface: #0a1c40; --pp-fg: #eef2fb; --pp-sea: #020817; --pp-land: #0b1d42; --pp-edge: #1d3a72; --pp-hl: #4a3a0f; --pp-hl-edge: #f0bc4c; --pp-label: #c4cee6; --pp-shadow: rgba(0,0,0,.55); --pp-ok: #7fe0ae; --pp-ok-soft: #0f2e22; --pp-warn: #f0bc4c; --pp-warn-soft: #2d230b;
+.pp-scope { --pp-surface: #0a1c40; --pp-fg: #eef2fb; --pp-sea: #020817; --pp-land: #0b1d42; --pp-edge: #1d3a72; --pp-hl: #4a3a0f; --pp-hl-edge: #f0bc4c; --pp-label: #c4cee6; --pp-shadow: rgba(0,0,0,.55); --pp-ok: #7fe0ae; --pp-ok-soft: #0f2e22; --pp-warn: #f0bc4c; --pp-warn-soft: #2d230b;
   --t-mosque: #f0bc4c; --t-musallah: #4fb3f0; --t-centre: #5fd39a; --t-jumuah: #f07fae; --t-school: #b39cff; --t-room: #a9b6cc;
-  display: grid; gap: 1.1rem; margin-top: 2.6rem; padding-top: 2.6rem; border-top: 1px solid var(--line); min-width: 0; }
+  display: grid; gap: 2.2rem; min-width: 0; }
+.pp { display: grid; gap: 1.1rem; padding-top: 2.4rem; border-top: 1px solid var(--line); min-width: 0; }
 .pp-head { display: grid; gap: .5rem; }
 .pp-head h2 { font-family: var(--display); font-size: clamp(2rem, 1.5rem + 2vw, 3rem); line-height: 1.05; margin: 0; }
 .pp-lede { color: var(--muted); max-width: 72ch; margin: 0; }
@@ -1298,12 +1299,12 @@ svg.leaflet-image-layer.leaflet-interactive path {
 .pp-chip[aria-pressed="true"] { background: var(--gold-hi); border-color: var(--gold-hi); color: #140f03; }
 .pp-chip[aria-pressed="true"] i { box-shadow: 0 0 0 2px #140f03; }
 .pp-toast { min-height: 1.1em; font-size: .82rem; color: var(--pp-ok); }
-.pp-mapbox { position: relative; height: clamp(460px, 72vh, 820px); border: 1px solid var(--line-2); border-radius: var(--r); overflow: hidden; background: var(--pp-sea); box-shadow: 0 40px 80px -40px rgba(0,0,0,.9), 0 0 60px -30px rgba(240,188,76,.3); }
+.pp-mapbox { position: relative; height: 100%; min-height: 460px; border: 1px solid var(--line-2); border-radius: var(--r); overflow: hidden; background: var(--pp-sea); box-shadow: 0 40px 80px -40px rgba(0,0,0,.9), 0 0 60px -30px rgba(240,188,76,.3); }
 .pp-map { position: absolute; inset: 0; background: var(--pp-sea); }
-.pp .leaflet-container { background: var(--pp-sea); font-family: var(--body); }
-.pp .leaflet-control-zoom a { background: var(--pp-surface); color: var(--pp-fg); border-color: var(--line-2) !important; }
-.pp .leaflet-control-zoom a:hover { background: #12305f; }
-.pp .leaflet-bar { border: 1px solid var(--line-2) !important; box-shadow: 0 6px 18px -8px var(--pp-shadow) !important; }
+.pp-scope .leaflet-container { background: var(--pp-sea); font-family: var(--body); }
+.pp-scope .leaflet-control-zoom a { background: var(--pp-surface); color: var(--pp-fg); border-color: var(--line-2) !important; }
+.pp-scope .leaflet-control-zoom a:hover { background: #12305f; }
+.pp-scope .leaflet-bar { border: 1px solid var(--line-2) !important; box-shadow: 0 6px 18px -8px var(--pp-shadow) !important; }
 .pp-views { position: absolute; z-index: 800; top: 12px; left: 56px; right: 12px; display: flex; flex-wrap: wrap; gap: .35rem; pointer-events: none; }
 .pp-views button { pointer-events: auto; font: 700 .78rem var(--body); padding: .45rem .8rem; border-radius: 999px; border: 1px solid var(--line-2); background: rgba(10,28,64,.92); color: var(--pp-fg); cursor: pointer; backdrop-filter: blur(6px); }
 .pp-views button[aria-pressed="true"] { background: var(--gold-hi); color: #140f03; border-color: var(--gold-hi); }
@@ -1315,7 +1316,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 .pp-cl { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: #0a1c40; border: 2px solid var(--gold-hi); color: #fff; font: 800 .85rem var(--body); box-shadow: 0 0 0 5px rgba(240,188,76,.15), 0 6px 16px -6px rgba(0,0,0,.7); }
 .pp-cl.m { width: 48px; height: 48px; font-size: .95rem; }
 .pp-cl.l { width: 58px; height: 58px; font-size: 1.05rem; }
-.pp .marker-cluster { background: transparent; }
+.pp-scope .marker-cluster { background: transparent; }
 .pp-sl { font: 600 11px var(--body); color: var(--pp-label); white-space: nowrap; text-shadow: 0 0 3px #0b1d42, 0 0 3px #0b1d42, 0 0 2px #0b1d42; pointer-events: none; transform: translate(-50%, -50%); width: max-content; }
 .pp-sl.hot { color: #fff; font-weight: 800; }
 .pp-sl.town { font-size: 12px; font-weight: 800; color: var(--champagne); letter-spacing: .04em; }
@@ -1361,7 +1362,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 .pp-side a:hover, .pp-side button:hover { text-decoration: underline; text-underline-offset: 3px; }
 .pp-empty { color: var(--muted); padding: 1rem 0; }
 .pp-csv { width: 100%; height: 120px; font: 12px/1.4 ui-monospace, Menlo, monospace; background: var(--pp-surface); color: var(--pp-fg); border: 1px solid var(--line); border-radius: 8px; }
-.pp input:focus-visible, .pp select:focus-visible, .pp button:focus-visible, .pp a:focus-visible { outline: 2px solid var(--gold-hi); outline-offset: 2px; }
+.pp-scope input:focus-visible, .pp-scope select:focus-visible, .pp-scope button:focus-visible, .pp-scope a:focus-visible { outline: 2px solid var(--gold-hi); outline-offset: 2px; }
 @media (max-width: 700px) {
   .pp-card { top: auto; bottom: 0; right: 0; left: 0; width: 100%; max-height: 62%; border-radius: 18px 18px 0 0; }
   .pp-views { left: 52px; }
@@ -1369,6 +1370,22 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .pp-item { grid-template-columns: 1fr; }
   .pp-side { grid-row: auto; grid-column: 1; display: flex; flex-wrap: wrap; align-items: center; gap: .45rem .9rem; justify-items: start; margin-top: .3rem; }
 }
+
+/* Salah dial and map side by side */
+.duo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.18fr); gap: 1.4rem; align-items: stretch; }
+.duo-col { display: grid; grid-template-rows: auto 1fr; gap: .8rem; min-width: 0; }
+.duo-lab { display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem .9rem; padding-inline: .2rem; }
+.duo-k { font-family: var(--caps); font-size: .7rem; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; color: var(--gold-hi); }
+.duo-t { font-family: var(--display); font-size: 1.55rem; font-weight: 600; line-height: 1; color: #fff; }
+.duo-link { margin-left: auto; font-size: .84rem; font-weight: 700; color: var(--champagne); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 1px; }
+.duo-link:hover { color: #fff; border-color: var(--gold-hi); }
+.duo .dial-wrap { height: 100%; display: flex; flex-direction: column; justify-content: center; gap: .4rem; border-color: var(--line-2); border-radius: var(--r); background: radial-gradient(420px circle at 50% 0%, rgba(240,188,76,.12), transparent 60%), var(--panel); box-shadow: 0 40px 80px -40px rgba(0,0,0,.9), 0 0 60px -30px rgba(240,188,76,.25); }
+.duo .dial-wrap svg { width: 100%; height: auto; }
+.duo .dial-meta { border-top: 1px solid var(--line); margin-top: .4rem; padding-top: .9rem; }
+.duo .pp-views { left: 52px; }
+.duo .pp-hint { display: none; }
+.duo .pp-views button { padding: .38rem .7rem; font-size: .74rem; }
+@media (max-width: 960px) { .duo { grid-template-columns: 1fr; } .duo .pp-mapbox { height: clamp(440px, 68vh, 640px); } }
 
 /* ===== v9: feedback round 1 ===== */
 .draftbar { background: linear-gradient(90deg, #4a3410, #8a6418 50%, #4a3410); color: #fff3cf; font-size: .76rem; text-align: center; padding: .32rem 1rem; letter-spacing: .02em; }
@@ -1759,17 +1776,29 @@ footer .wrap { padding-block: 3.2rem 2rem; gap: 2rem; }
       <div class="doc glow"><b>Registration</b><span>IA number and ABN to be added.</span></div>
       <div class="doc glow"><b>Funding</b><span>Members' own contributions, donations, sponsorship and grants (clause 7c).</span></div>
     </div></div></div></div>
-<div class="view" id="today" data-title="today"><header class="ph"><svg class="ph-rz" viewBox="-500 -500 1000 1000" aria-hidden="true"><g class="pgc"></g></svg><div class="wrap ph-in"><nav class="crumb" aria-label="Breadcrumb"><a href="#home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Home</a><span>/</span><span><span id="nextLine">Salah times for Perth</span></span></nav><span class="ur" lang="ur">آج پرتھ میں</span><h1><span id="nextLine">Salah times for Perth</span></h1><p class="fine" id="todayDate" style="color:var(--champagne)">Today in Perth</p><p class="lede" id="nextSub">Gatherings are planned around salah, so no one has to choose.</p></div></header><div class="wrap vbody"><div class="today-view"><div class="dial-wrap glow rv">
+<div class="view" id="today" data-title="today"><header class="ph"><svg class="ph-rz" viewBox="-500 -500 1000 1000" aria-hidden="true"><g class="pgc"></g></svg><div class="wrap ph-in"><nav class="crumb" aria-label="Breadcrumb"><a href="#home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Home</a><span>/</span><span><span id="nextLine">Salah times for Perth</span></span></nav><span class="ur" lang="ur">آج پرتھ میں</span><h1><span id="nextLine">Salah times for Perth</span></h1><p class="fine" id="todayDate" style="color:var(--champagne)">Today in Perth</p><p class="lede" id="nextSub">Gatherings are planned around salah, so no one has to choose.</p></div></header><div class="wrap vbody"><div class="pp-scope"><div class="duo"><div class="duo-col"><div class="duo-lab"><span class="duo-k">Today in Perth</span><span class="duo-t">Salah times</span></div><div class="dial-wrap glow rv">
       <svg id="dial" viewBox="0 0 600 340" role="img" aria-label="Today's salah times in Perth along the arc of the day"></svg>
       <div class="dial-meta">
         <span>Muslim World League method. Follow your masjid's iqamah.</span>
         <span class="seg" role="group" aria-label="Asr calculation"><button type="button" data-asr="2" aria-pressed="true">Asr Hanafi</button><button type="button" data-asr="1" aria-pressed="false">Asr Shafi'i</button></span>
       </div>
-    </div></div><section class="pp" id="pp">
+    </div></div><div class="duo-col"><div class="duo-lab"><span class="duo-k">Across Western Australia</span><span class="duo-t">Places to pray</span><a class="duo-link" href="#pp-q">Search the list ↓</a></div>  <div class="pp-mapbox">
+    <div class="pp-map" id="pp-map" role="application" aria-label="Map of Western Australia with places to pray"></div>
+    <div class="pp-views" role="group" aria-label="Jump to an area">
+      <button type="button" data-v="wa" aria-pressed="true">All WA</button>
+      <button type="button" data-v="perth" aria-pressed="false">Perth metro</button>
+      <button type="button" data-v="se" aria-pressed="false">Perth south-east</button>
+      <button type="button" data-v="sw" aria-pressed="false">Peel &amp; South West</button>
+      <button type="button" data-v="north" aria-pressed="false">Pilbara &amp; Kimberley</button>
+    </div>
+    <div class="pp-hint">Gold suburbs have at least one place. Pins sit in the middle of the suburb, not at the exact address; use Directions for the exact spot.</div>
+    <div class="pp-card" id="pp-card" hidden></div>
+  </div>
+</div></div><section class="pp" id="pp">
   <div class="pp-head">
     <span class="ur" lang="ur">مساجد مغربی آسٹریلیا</span>
-    <h2>Find a place to pray in WA</h2>
-    <p class="pp-lede">Every mosque, musallah, Jumu'ah venue and prayer room we could find across Western Australia. Zoom into a suburb to see what's there, then tap a pin for the address, website and directions. Places marked <b>Call to confirm</b> come from community directories, so phone before you travel.</p>
+    <h2>Search every place to pray</h2>
+    <p class="pp-lede">Every mosque, musallah, Jumu'ah venue and prayer room we could find across Western Australia. Search or filter here and the map above follows; tap a pin for the address, website and directions. Pins sit in the middle of each suburb; Directions opens the exact address. Places marked <b>Call to confirm</b> come from community directories, so phone before you travel.</p>
     <div class="pp-stats" id="pp-stats"></div>
   </div>
   <div class="pp-bar">
@@ -1782,23 +1811,11 @@ footer .wrap { padding-block: 3.2rem 2rem; gap: 2rem; }
     <div class="pp-chips" id="pp-types" role="group" aria-label="Filter by type"></div>
     <div class="pp-toast" id="pp-toast" role="status"></div>
   </div>
-  <div class="pp-mapbox">
-    <div class="pp-map" id="pp-map" role="application" aria-label="Map of Western Australia with places to pray"></div>
-    <div class="pp-views" role="group" aria-label="Jump to an area">
-      <button type="button" data-v="wa" aria-pressed="true">All WA</button>
-      <button type="button" data-v="perth" aria-pressed="false">Perth metro</button>
-      <button type="button" data-v="se" aria-pressed="false">Perth south-east</button>
-      <button type="button" data-v="sw" aria-pressed="false">Peel &amp; South West</button>
-      <button type="button" data-v="north" aria-pressed="false">Pilbara &amp; Kimberley</button>
-    </div>
-    <div class="pp-hint">Gold suburbs have at least one place. Pins sit in the middle of the suburb, not at the exact address; use Directions for the exact spot.</div>
-    <div class="pp-card" id="pp-card" hidden></div>
-  </div>
   <div class="pp-lhead"><h3>All places</h3><p id="pp-shown"></p></div>
   <div class="pp-out" id="pp-out"></div>
   <textarea class="pp-csv" id="pp-csvbox" hidden readonly aria-label="CSV text to copy"></textarea>
 </section>
-</div></div>
+</div></div></div>
 <div class="view" id="faq" data-title="faq"><header class="ph"><svg class="ph-rz" viewBox="-500 -500 1000 1000" aria-hidden="true"><g class="pgc"></g></svg><div class="wrap ph-in"><nav class="crumb" aria-label="Breadcrumb"><a href="#home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Home</a><span>/</span><span>Questions</span></nav><span class="ur" lang="ur">سوالات</span><h1>Questions</h1><p class="lede">Asked at every gathering.</p></div></header><div class="wrap vbody"><div class="faq">
       <details class="glow"><summary>Is there a membership fee?</summary><p>No. The Constitution sets no membership fee (clause 14). When HAWA runs an activity, the costs are shared fairly among those who take part, as the committee decides.</p></details>
       <details class="glow"><summary>Who can join?</summary><p>Any Muslim who supports HAWA's objects. Ordinary members are 18 or over and can vote and stand for the committee. Associate membership is for under-18s and friends of the community who want to take part without voting.</p></details>
@@ -2359,6 +2376,12 @@ footer .wrap { padding-block: 3.2rem 2rem; gap: 2rem; }
   function initMap() {
     map = L.map('pp-map', { preferCanvas: true, zoomSnap: .25, minZoom: 4, maxZoom: 16, attributionControl: false, maxBounds: [[-45, 100], [-5, 140]], scrollWheelZoom: true });
     map.fitBounds(VIEWS.wa);
+    var touched = false, curView = 'wa';
+    ['dragstart'].forEach(function (ev) { map.on(ev, function () { touched = true; }); });
+    map.getContainer().addEventListener('wheel', function () { touched = true; }, { passive: true });
+    map.getContainer().addEventListener('touchstart', function () { touched = true; }, { passive: true });
+    window.ppSetView = function (v) { curView = v; };
+    if ('ResizeObserver' in window) new ResizeObserver(function () { map.invalidateSize(); if (!touched) map.fitBounds(VIEWS[curView], { animate: false }); }).observe(map.getContainer());
     var canvas = L.canvas({ padding: .3 });
     L.geoJSON({ type: 'FeatureCollection', features: NB.map(function (p) { return { type: 'Feature', geometry: { type: 'MultiPolygon', coordinates: p } }; }) }, { renderer: canvas, interactive: false, style: function () { return { color: C.edge, weight: .8, fillColor: C.nb, fillOpacity: 1 }; } }).addTo(map);
     var feats = SUB.map(function (s) { return { type: 'Feature', name: s[0], hot: !!byLoc[s[0]], geometry: { type: 'MultiPolygon', coordinates: s[1] } }; });
@@ -2378,7 +2401,7 @@ footer .wrap { padding-block: 3.2rem 2rem; gap: 2rem; }
     D.querySelectorAll('.pp-views button').forEach(function (b) { b.addEventListener('click', function () { setView(b.dataset.v); }); });
     apply();
   }
-  function setView(v) { D.querySelectorAll('.pp-views button').forEach(function (x) { x.setAttribute('aria-pressed', x.dataset.v === v); }); map.flyToBounds(VIEWS[v], { duration: .8 }); }
+  function setView(v) { if (window.ppSetView) window.ppSetView(v); D.querySelectorAll('.pp-views button').forEach(function (x) { x.setAttribute('aria-pressed', x.dataset.v === v); }); map.flyToBounds(VIEWS[v], { duration: .8 }); }
   function cardHead(sub, h) { return '<button class="x" type="button" aria-label="Close">×</button><div class="sub">' + sub + '</div><h4>' + h + '</h4>'; }
   function showPlace(r) {
     var prev = selId; selId = r.id; if (prev !== null && markers[prev]) markers[prev].setIcon(pinIcon(ROWS[prev])); markers[r.id].setIcon(pinIcon(r));
