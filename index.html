@@ -595,6 +595,59 @@ details.notes .help-note { margin: 0 0 1.2rem; }
 @media (max-width: 860px) { .sponsors { grid-template-columns: repeat(2, minmax(0,1fr)); } }
 @media (max-width: 420px) { .sp.lead { grid-column: 1 / -1; } }
 
+/* ===== New to WA ===== */
+.arr-intro { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem; }
+.arr-intro p { margin: 0; color: var(--muted); font-size: .9rem; max-width: 62ch; }
+.arr-prog { display: grid; grid-template-columns: auto auto; align-items: baseline; gap: .1rem .5rem; min-width: 220px; }
+.arr-prog b { font-family: var(--display); font-size: 2.4rem; line-height: 1; color: var(--gold-hi); font-variant-numeric: tabular-nums; }
+.arr-prog > span { color: var(--muted); font-size: .9rem; }
+.arr-bar { grid-column: 1 / -1; height: 4px; border-radius: 4px; background: rgba(240,188,76,.15); overflow: hidden; margin-top: .4rem; }
+.arr-bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #c48c1c, #f0bc4c); transition: width .5s; }
+.arr-weeks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; align-items: start; }
+.arr-wk { display: grid; gap: .8rem; min-width: 0; }
+.arr-wk header { display: grid; gap: .2rem; padding-bottom: .6rem; border-bottom: 1px solid var(--line-2); }
+.arr-wk h3 { font-size: 1.6rem; margin: 0; }
+.arr-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .7rem; }
+.arr-item { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: .8rem; padding: 1rem 1.05rem; align-items: start; transition: opacity .3s, border-color .3s; }
+.arr-item b { display: block; font-size: 1rem; color: #fff; line-height: 1.3; }
+.arr-item p { margin: .3rem 0 0; color: var(--muted); font-size: .88rem; line-height: 1.5; }
+.arr-item p b { display: inline; color: var(--champagne); font-size: inherit; }
+.arr-item.done { opacity: .55; }
+.arr-item.done > div > b { text-decoration: line-through; text-decoration-color: rgba(240,188,76,.6); }
+.arr-chk { position: relative; width: 24px; height: 24px; cursor: pointer; margin-top: .05rem; }
+.arr-chk input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
+.arr-chk span { position: absolute; inset: 0; border: 1.5px solid var(--line-2); border-radius: 7px; background: rgba(3,12,34,.5); transition: background .2s, border-color .2s; }
+.arr-chk input:checked + span { background: var(--gold-hi); border-color: var(--gold-hi); }
+.arr-chk input:checked + span::after { content: ""; position: absolute; left: 7px; top: 3px; width: 6px; height: 11px; border: solid #140f03; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.arr-chk input:focus-visible + span { outline: 2px solid var(--gold-hi); outline-offset: 2px; }
+.arr-links { display: flex; flex-wrap: wrap; gap: .3rem .9rem; margin-top: .55rem; }
+.arr-links a { font-size: .8rem; font-weight: 700; color: var(--gold-hi); text-decoration: none; }
+.arr-links a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.arr-tip { font-size: .8rem !important; color: var(--champagne) !important; border-left: 2px solid var(--gold-hi); padding-left: .6rem; }
+.arr-tip a { color: var(--gold-hi); }
+.ind-alert { padding: 1rem 1.2rem; border: 1px solid rgba(240,188,76,.5); border-radius: 14px; background: rgba(240,188,76,.08); color: var(--champagne); font-size: .92rem; }
+.ind-alert b { color: var(--gold-hi); }
+.ind-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.ind-card { padding: 1.3rem 1.35rem; display: grid; gap: .45rem; align-content: start; min-width: 0; }
+.ind-card.wide { grid-column: span 3; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); column-gap: 2rem; align-items: start; }
+.ind-card.wide h4, .ind-card.wide > p { grid-column: 1; }
+.ind-card.wide .ind-kv { grid-column: 2; grid-row: 1 / span 3; }
+.ind-card.wide .arr-links { grid-column: 1; }
+.ind-card h4 { font-size: 1.35rem; margin: 0; }
+.ind-card p { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.55; }
+.ind-card p b { color: var(--champagne); }
+.ind-kv { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: .4rem .8rem; margin: 0; font-size: .92rem; }
+.ind-kv dt { color: var(--dim); font-weight: 600; }
+.ind-kv dd { margin: 0; color: #fff; overflow-wrap: anywhere; }
+.ind-note { margin-top: .4rem; }
+#arrive .vpanel { gap: 1.4rem; }
+@media (max-width: 1000px) { .arr-weeks { grid-template-columns: 1fr; } .ind-grid { grid-template-columns: 1fr 1fr; } .ind-card.wide { grid-column: span 2; } }
+@media (max-width: 640px) { .ind-grid { grid-template-columns: 1fr; } .ind-card.wide { grid-column: auto; grid-template-columns: 1fr; } .ind-card.wide .ind-kv { grid-column: 1; grid-row: auto; } }
+/* nav fit + map stacking */
+.nav a { white-space: nowrap; }
+@media (min-width: 1181px) and (max-width: 1420px) { .nav a { font-size: .8rem; padding: .5rem .4rem; } .nav a:not(.btn)::after { left: .4rem; right: .4rem; } .nav .btn { padding: .62rem .9rem; margin-left: .25rem; } .top .wrap { gap: .6rem; } .brand .pill { display: none; } }
+.pp-mapbox { isolation: isolate; }
+
 /* ===== Leaflet (inlined CSS) ===== */
 /* required styles */
 
@@ -1414,6 +1467,31 @@ svg.leaflet-image-layer.leaflet-interactive path {
 @media (max-width: 1080px) { .salbar { grid-template-columns: auto minmax(0, 1fr); } .sb-side { grid-column: 1 / -1; grid-auto-flow: column; justify-content: space-between; align-items: center; justify-items: start; max-width: none; } .sb-side small { text-align: left; } }
 @media (max-width: 720px) { .salbar { grid-template-columns: 1fr; padding: 1.1rem 1rem 1.3rem; } .sb-times { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: .6rem; } .sb-times li:nth-child(4) { border-left: 0; } .sb-side { grid-auto-flow: row; justify-items: start; } .mapwrap .pp-mapbox { height: clamp(460px, 72vh, 640px); } }
 
+/* Qibla finder */
+.qb { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 1.6rem 2.2rem; align-items: center; padding: 1.3rem 1.6rem; border: 1px solid var(--line-2); border-radius: var(--r); background: radial-gradient(420px circle at 0% 50%, rgba(240,188,76,.12), transparent 60%), var(--panel); box-shadow: 0 30px 60px -36px rgba(0,0,0,.9); }
+.qb-dial svg { width: 200px; height: 200px; display: block; filter: drop-shadow(0 10px 24px rgba(0,0,0,.5)); }
+#qbNeedle, #qbRose { transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.qb.live #qbNeedle, .qb.live #qbRose { transition: transform .15s linear; }
+.qb.aligned .qb-dial svg { filter: drop-shadow(0 0 26px rgba(240,188,76,.75)); }
+.qb-body { display: grid; gap: .45rem; min-width: 0; }
+.qb-head { display: flex; align-items: baseline; gap: .8rem; }
+.qb-ar { font-family: var(--arabic); font-size: 1.3rem; color: var(--gold-hi); }
+.qb-read { margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem .8rem; }
+.qb-read b { font-family: var(--display); font-size: 3rem; font-weight: 600; line-height: 1; color: #fff; font-variant-numeric: tabular-nums; }
+.qb-read span { font-size: 1.05rem; font-weight: 700; color: var(--champagne); text-transform: capitalize; }
+.qb-from { margin: 0; color: var(--muted); font-size: .92rem; }
+.qb-from span { color: #fff; font-weight: 600; }
+.qb-ctl { display: flex; flex-wrap: wrap; gap: .55rem; align-items: center; margin-top: .4rem; }
+.qb-search { flex: 1 1 220px; min-width: 0; }
+.qb-search input { width: 100%; font: 500 .92rem var(--body); padding: .62rem .95rem; border: 1px solid var(--line-2); border-radius: 999px; background: rgba(3,12,34,.6); color: #eef2fb; }
+.qb-search input::placeholder { color: var(--dim); }
+.qb-btn { font: 700 .84rem var(--body); padding: .62rem 1rem; border-radius: 999px; border: 1px solid var(--line-2); background: transparent; color: #eef2fb; cursor: pointer; white-space: nowrap; }
+.qb-btn:hover { border-color: var(--gold-hi); }
+.qb-btn.gold { background: var(--gold-hi); color: #140f03; border-color: var(--gold-hi); }
+.qb-note { margin: 0; font-size: .78rem; color: var(--dim); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (max-width: 640px) { .qb { grid-template-columns: 1fr; justify-items: center; text-align: center; padding: 1.2rem 1rem; } .qb-body { justify-items: center; } .qb-head, .qb-read { justify-content: center; } .qb-ctl { justify-content: center; } }
+
 /* ===== v9: feedback round 1 ===== */
 .draftbar { background: linear-gradient(90deg, #4a3410, #8a6418 50%, #4a3410); color: #fff3cf; font-size: .76rem; text-align: center; padding: .32rem 1rem; letter-spacing: .02em; }
 .draftbar b { color: #fff; }
@@ -1596,6 +1674,7 @@ footer .wrap { padding-block: 3.2rem 2rem; gap: 2rem; }
       <a href="#about">About</a>
       <a href="#services">What we do</a>
       <a href="#help">Get help</a>
+      <a href="#arrive">New to WA</a>
       <a href="#events">Events</a>
       <a href="#gallery">Gallery</a>
       <a href="#today">Salah</a>
@@ -1633,6 +1712,7 @@ footer .wrap { padding-block: 3.2rem 2rem; gap: 2rem; }
       <div class="cta-row">
         <a class="btn btn-gold" href="#membership">Join HAWA, free</a>
         <a class="btn btn-glass" href="#help">I need help</a>
+        <a class="btn btn-glass" href="#arrive">New to WA</a>
       </div>
     </div>
     <div class="live" aria-label="Live in Perth">
@@ -1694,6 +1774,7 @@ footer .wrap { padding-block: 3.2rem 2rem; gap: 2rem; }
       <p><b>Finance:</b> providers described as offering sharia-compliant products have not been assessed by HAWA. Check licences on Moneysmart or the ASIC register.</p>
       <p>Information only, not advice, and not an endorsement. Helpline hours shown in Perth time. Last checked October 2026.</p>
     </div></details></div></div>
+<div class="view" id="arrive" data-title="arrive"><header class="ph"><svg class="ph-rz" viewBox="-500 -500 1000 1000" aria-hidden="true"><g class="pgc"></g></svg><div class="wrap ph-in"><nav class="crumb" aria-label="Breadcrumb"><a href="#home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Home</a><span>/</span><span>New to WA</span></nav><span class="ur" lang="ur">خوش آمدید</span><h1>New to <em>WA</em></h1><p class="lede">Your first 30 days in Western Australia, and the Indian services you will need from Perth.</p></div></header><div class="wrap vbody"><div class="subtabs" role="tablist" aria-label="Sections"><button type="button" role="tab" id="st-arr-days" aria-selected="true" data-p="days">First 30 days</button><button type="button" role="tab" id="st-arr-india" aria-selected="false" data-p="india">India services</button></div><div class="vpanel" data-group="arr" data-p="days" role="tabpanel" aria-labelledby="st-arr-days"><div class="arr-intro"><div class="arr-prog"><b id="arrDone">0</b><span>of <span id="arrTotal">0</span> done</span><div class="arr-bar"><i id="arrBar"></i></div></div><p>Tick items off as you go. Your ticks stay on this device only. Checked against official sources in October 2026; rules change, so follow the links before you act.</p></div><div class="arr-weeks"><section class="arr-wk"><header><span class="duo-k">Week 1</span><h3>First things</h3></header><ol class="arr-list"><li class="arr-item glow" data-k="nums"><label class="arr-chk"><input type="checkbox" data-k="nums" aria-label="Done: Save the numbers that matter"><span></span></label><div><b>Save the numbers that matter</b><p>Emergency <b>000</b>. Nurse advice 24/7: healthdirect <b>1800 022 222</b>. Free interpreter in Urdu, Telugu or Hindi: TIS National <b>131 450</b>.</p><div class="arr-links"><a href="https://www.healthdirect.gov.au/healthdirect-helpline" target="_blank" rel="noopener">healthdirect ↗</a><a href="https://www.tisnational.gov.au/Non-English-speakers/Interpreting-services" target="_blank" rel="noopener">TIS National ↗</a></div></div></li><li class="arr-item glow" data-k="sim"><label class="arr-chk"><input type="checkbox" data-k="sim" aria-label="Done: Get a local SIM"><span></span></label><div><b>Get a local SIM</b><p>Carriers must check your ID before activating a prepaid SIM, so take your passport.</p></div></li><li class="arr-item glow" data-k="bank"><label class="arr-chk"><input type="checkbox" data-k="bank" aria-label="Done: Open a bank account"><span></span></label><div><b>Open a bank account</b><p>Within <b>6 weeks</b> of arrival your passport is the only ID you need. After that you need two forms of ID.</p><div class="arr-links"><a href="https://immi.homeaffairs.gov.au/settling-in-australia/settle-in-australia/key-settlement-topics/managing-your-finances" target="_blank" rel="noopener">Home Affairs ↗</a></div></div></li><li class="arr-item glow" data-k="tfn"><label class="arr-chk"><input type="checkbox" data-k="tfn" aria-label="Done: Apply for your Tax File Number"><span></span></label><div><b>Apply for your Tax File Number</b><p>Free and online if your visa has work rights. It arrives by post within 28 days, so don't apply twice. Never pay an agent for this.</p><div class="arr-links"><a href="https://www.ato.gov.au/individuals-and-families/tax-file-number/apply-for-a-tfn/foreign-passport-holders-permanent-migrants-and-temporary-visitors-tfn-application" target="_blank" rel="noopener">ATO ↗</a></div></div></li><li class="arr-item glow" data-k="mygov"><label class="arr-chk"><input type="checkbox" data-k="mygov" aria-label="Done: Create your myGov account"><span></span></label><div><b>Create your myGov account</b><p>You need an email address. Later you link Medicare, the ATO and Centrelink to it.</p><div class="arr-links"><a href="https://my.gov.au/en/about/help/mygov-account/create-mygov-account" target="_blank" rel="noopener">myGov ↗</a></div></div></li><li class="arr-item glow" data-k="drive"><label class="arr-chk"><input type="checkbox" data-k="drive" aria-label="Done: Sort out driving early"><span></span></label><div><b>Sort out driving early</b><p>India is a <b>non-recognised</b> country in WA. Permanent residents can drive on an Indian licence for <b>3 months</b> only, then need a WA licence: a verification letter from the Indian consulate (allow about 4 weeks), a theory test and a driving assessment. Temporary residents can keep driving on a current licence.</p><div class="arr-links"><a href="https://www.transport.wa.gov.au/licensing/transfer-licence-from-non-recognised-country.asp" target="_blank" rel="noopener">Transport WA ↗</a></div><p class="arr-tip">Ask for the consulate letter in week 1. It is the slowest step. See <a href="#arrive" data-goto="india">India services</a>.</p></div></li><li class="arr-item glow" data-k="ins"><label class="arr-chk"><input type="checkbox" data-k="ins" aria-label="Done: Temporary visa? Keep health cover in place"><span></span></label><div><b>Temporary visa? Keep health cover in place</b><p>Many temporary visas carry condition 8501, which requires adequate health insurance for the whole stay. Check your conditions in VEVO.</p><div class="arr-links"><a href="https://immi.homeaffairs.gov.au/help-support/meeting-our-requirements/health/adequate-health-insurance" target="_blank" rel="noopener">Home Affairs ↗</a></div></div></li></ol></section><section class="arr-wk"><header><span class="duo-k">Week 2</span><h3>Health, home and school</h3></header><ol class="arr-list"><li class="arr-item glow" data-k="medicare"><label class="arr-chk"><input type="checkbox" data-k="medicare" aria-label="Done: Enrol in Medicare"><span></span></label><div><b>Enrol in Medicare</b><p>You can enrol once you hold a permanent visa or have applied for one. India has <b>no</b> reciprocal health agreement with Australia, so temporary visa holders rely on private cover.</p><div class="arr-links"><a href="https://www.servicesaustralia.gov.au/enrolling-medicare-if-youre-australian-permanent-resident" target="_blank" rel="noopener">Services Australia ↗</a></div></div></li><li class="arr-item glow" data-k="gp"><label class="arr-chk"><input type="checkbox" data-k="gp" aria-label="Done: Find a GP near you"><span></span></label><div><b>Find a GP near you</b><p>Use the healthdirect Service Finder, including after-hours GPs. Doctors can book a free interpreter for you.</p><div class="arr-links"><a href="https://www.healthdirect.gov.au/australian-health-services" target="_blank" rel="noopener">Service Finder ↗</a></div></div></li><li class="arr-item glow" data-k="school"><label class="arr-chk"><input type="checkbox" data-k="school" aria-label="Done: Enrol the children in school"><span></span></label><div><b>Enrol the children in school</b><p>Kindergarten if your child turns 4 by 30 June, Pre-primary if 5. Most schools have a local intake area. Bring an immunisation statement from the last 2 months and visa evidence. Families on a 482 visa pay <b>$4,000 a year per family</b> (waivers apply).</p><div class="arr-links"><a href="https://www.education.wa.edu.au/enrol" target="_blank" rel="noopener">Department of Education ↗</a><a href="https://www.tafeinternational.wa.edu.au/wa-government-schools/children-who-are-dependants-visa-holders" target="_blank" rel="noopener">Temporary visa fees ↗</a></div></div></li><li class="arr-item glow" data-k="rent"><label class="arr-chk"><input type="checkbox" data-k="rent" aria-label="Done: Renting: protect your bond"><span></span></label><div><b>Renting: protect your bond</b><p>Bond is at most 4 weeks' rent. Your landlord must lodge it with Bonds Administration within 14 days, and you get a record from them. Free tenancy advice: Circle Green, <b>08 6148 3636</b>.</p><div class="arr-links"><a href="https://www.consumerprotection.wa.gov.au/consumer-protection/rental-bonds" target="_blank" rel="noopener">Consumer Protection WA ↗</a></div></div></li><li class="arr-item glow" data-k="smart"><label class="arr-chk"><input type="checkbox" data-k="smart" aria-label="Done: Get a SmartRider for Transperth"><span></span></label><div><b>Get a SmartRider for Transperth</b><p>Autoload saves 20% on fares. School students travel free on weekdays in term with a Student SmartRider.</p><div class="arr-links"><a href="https://www.transperth.wa.gov.au/tickets-fares/concession-guide" target="_blank" rel="noopener">Transperth ↗</a></div></div></li></ol></section><section class="arr-wk"><header><span class="duo-k">By day 30</span><h3>Work, support and community</h3></header><ol class="arr-list"><li class="arr-item glow" data-k="centrelink"><label class="arr-chk"><input type="checkbox" data-k="centrelink" aria-label="Done: Know the Centrelink waiting periods"><span></span></label><div><b>Know the Centrelink waiting periods</b><p>New residents wait <b>1 year</b> for Family Tax Benefit Part A and <b>4 years</b> for most payments such as JobSeeker. FTB Part B and Child Care Subsidy have no wait.</p><div class="arr-links"><a href="https://www.servicesaustralia.gov.au/individuals/services/centrelink/family-tax-benefit/who-can-get-it/residence-rules/newly-arrived-residents-waiting-period" target="_blank" rel="noopener">Services Australia ↗</a></div></div></li><li class="arr-item glow" data-k="jobs"><label class="arr-chk"><input type="checkbox" data-k="jobs" aria-label="Done: Get free career help"><span></span></label><div><b>Get free career help</b><p>Jobs and Skills Centres help with resumes, training and job search: <b>13 64 64</b>. The WA Overseas Qualifications Unit assesses your degree free of charge.</p><div class="arr-links"><a href="https://www.jobsandskills.wa.gov.au/contact-us" target="_blank" rel="noopener">Jobs and Skills WA ↗</a><a href="https://migration.wa.gov.au/our-services-support/overseas-qualifications-unit-oqu" target="_blank" rel="noopener">Qualifications Unit ↗</a></div></div></li><li class="arr-item glow" data-k="amep"><label class="arr-chk"><input type="checkbox" data-k="amep" aria-label="Done: Free English classes"><span></span></label><div><b>Free English classes</b><p>The Adult Migrant English Program is free, with free childcare during class. Register within 6 months of your visa start.</p><div class="arr-links"><a href="https://immi.homeaffairs.gov.au/settling-in-australia/amep/about-the-program" target="_blank" rel="noopener">AMEP ↗</a></div></div></li><li class="arr-item glow" data-k="sets"><label class="arr-chk"><input type="checkbox" data-k="sets" aria-label="Done: Free settlement support"><span></span></label><div><b>Free settlement support</b><p>Settlement caseworkers help people who arrived in the last 5 years, with priority for family and humanitarian visas.</p><div class="arr-links"><a href="https://immi.homeaffairs.gov.au/settling-in-australia/sets-program/eligibility" target="_blank" rel="noopener">Home Affairs ↗</a></div></div></li><li class="arr-item glow" data-k="hawa"><label class="arr-chk"><input type="checkbox" data-k="hawa" aria-label="Done: Find your community"><span></span></label><div><b>Find your community</b><p>Find your nearest masjid on the Salah page, join HAWA free, and ask for a free airport pickup or a welcome call.</p><div class="arr-links"><a href="#today">Salah and masjids</a><a href="#membership">Join HAWA</a><a href="#reach" data-tab="new">Airport pickup</a></div></div></li></ol></section></div></div><div class="vpanel" data-group="arr" data-p="india" role="tabpanel" aria-labelledby="st-arr-india" hidden><div class="ind-alert"><b>Changed in 2026.</b> Indian consular services in Australia paused for three weeks in July 2026 and restarted on 23 July through VFS Global. A new tender may change the provider again, so check cgiperth.gov.in before you go.</div><div class="ind-grid"><article class="ind-card glow wide"><h4>Consulate General of India, Perth</h4><p>Covers Western Australia and the Northern Territory.</p><dl class="ind-kv"><dt>Address</dt><dd>Level 6, 12 St Georges Terrace, Perth WA 6000</dd><dt>Phone</dt><dd>+61 8 9221 4205</dd><dt>Email</dt><dd>cg.perth@mea.gov.in</dd></dl><div class="arr-links"><a href="https://www.cgiperth.gov.in" target="_blank" rel="noopener">cgiperth.gov.in ↗</a></div></article><article class="ind-card glow wide"><h4>Where you apply: VFS Global centre</h4><p>Passports, OCI, visas, police certificates and attestation are lodged here, not at the consulate.</p><dl class="ind-kv"><dt>Address</dt><dd>Ground Floor, 23 Barrack Street, Perth WA 6000</dd><dt>Hours</dt><dd>Mon–Fri 8:30am–4:00pm, by appointment</dd><dt>Charge</dt><dd>AUD 115 service charge per application, plus the Government of India fee</dd></dl><div class="arr-links"><a href="https://services.vfsglobal.com/aus/en/ind/" target="_blank" rel="noopener">Book an appointment ↗</a></div></article><article class="ind-card glow"><h4>Renew your Indian passport</h4><p>Apply on the Global Passport Seva Portal, then lodge at VFS in person or by post. You need an Indian address for police verification. Allow about 4 weeks if your passport was issued in Australia, about 8 weeks if issued in India.</p><div class="arr-links"><a href="https://mportal.passportindia.gov.in/gpsp/AuthNavigation/Login" target="_blank" rel="noopener">Passport Seva (GPSP) ↗</a><a href="https://www.vfsglobal.com/one-pager/india/australia/passport-services/english/" target="_blank" rel="noopener">VFS checklists ↗</a></div></article><article class="ind-card glow"><h4>OCI card</h4><p>Apply online, then lodge <b>in person</b> at VFS with originals (no postal OCI since 1 April 2026). Re-issue is needed only once, for the first new passport after you turn 20. Other new passports are uploaded free online within 3 months.</p><div class="arr-links"><a href="https://ociservices.gov.in" target="_blank" rel="noopener">ociservices.gov.in ↗</a></div></article><article class="ind-card glow"><h4>Visiting India on an Australian passport</h4><p>Use the official e-Visa site only, at least 4 days before travel. Look-alike agent sites charge extra.</p><div class="arr-links"><a href="https://indianvisaonline.gov.in/evisa/tvoa.html" target="_blank" rel="noopener">Indian e-Visa (official) ↗</a></div></article><article class="ind-card glow"><h4>Police Clearance Certificate</h4><p>Apply on the Passport Seva portal and lodge with your passport, visa copy and photos at VFS. Processing time varies.</p><div class="arr-links"><a href="https://www.vfsglobal.com/one-pager/india/australia/passport-services/english/" target="_blank" rel="noopener">VFS checklist ↗</a></div></article><article class="ind-card glow"><h4>Sending documents home</h4><p>A Power of Attorney or property paper for India: sign before a JP or notary, then have it attested at VFS. Documents issued in Australia can instead carry a DFAT apostille. Ask the bank or registrar in India which they accept.</p><div class="arr-links"><a href="https://www.vfsglobal.com/one-pager/india/australia/consular_miscellaneous/english/" target="_blank" rel="noopener">Attestation ↗</a><a href="https://www.dfat.gov.au/about-us/our-services/apostilles-authentications-certificates-of-no-impediment-to-marriage/Pages/apostilles-authentications-and-certificates-of-no-impediment-to-marriage" target="_blank" rel="noopener">DFAT apostille ↗</a></div></article><article class="ind-card glow"><h4>Life certificate for pensioners</h4><p>Sign in person before a consular officer (free), post a JP-attested form, or use Jeevan Pramaan online with Aadhaar.</p><div class="arr-links"><a href="https://jeevanpramaan.gov.in/" target="_blank" rel="noopener">Jeevan Pramaan ↗</a></div></article><article class="ind-card glow"><h4>Baby born in Australia</h4><p>Register the birth with the consulate before or with the child's first Indian passport (Forms I and K, signed by both parents).</p><div class="arr-links"><a href="https://www.vfsglobal.com/one-pager/india/australia/consular_miscellaneous/english/" target="_blank" rel="noopener">VFS checklist ↗</a></div></article><article class="ind-card glow"><h4>Becoming an Australian citizen</h4><p>You must surrender your Indian passport straight away and get a surrender certificate. Travelling on it after citizenship attracts penalties.</p><div class="arr-links"><a href="https://www.vfsglobal.com/one-pager/india/australia/passport-services/English/pdf/Surrender%20of%20Indian%20Passport%20Checklist_May%202026.pdf" target="_blank" rel="noopener">Surrender checklist ↗</a></div></article><article class="ind-card glow"><h4>Driving licence verification letter</h4><p>Needed to convert your Indian licence to a WA licence. Request it through VFS as soon as you arrive; it can take about 4 weeks.</p><div class="arr-links"><a href="https://www.transport.wa.gov.au/licensing/transfer-licence-from-non-recognised-country.asp" target="_blank" rel="noopener">Transport WA ↗</a></div></article></div><p class="fine ind-note">Information only, checked October 2026. HAWA is not a visa or passport agent and does not lodge applications. Fees change often; confirm on the official sites.</p></div></div></div>
 <div class="view" id="events" data-title="events"><header class="ph"><svg class="ph-rz" viewBox="-500 -500 1000 1000" aria-hidden="true"><g class="pgc"></g></svg><div class="wrap ph-in"><nav class="crumb" aria-label="Breadcrumb"><a href="#home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Home</a><span>/</span><span>Events</span></nav><span class="ur" lang="ur">تقریبات</span><h1>Events</h1><p class="lede">A sample year with HAWA. Nothing here is scheduled yet.</p></div></header><div class="wrap vbody"><div class="sample-banner rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><p><b>Sample program only.</b> The committee will confirm real dates, venues and costs. Islamic dates depend on the moon. Members hear first on the HAWA WhatsApp Community.</p></div>
     <div class="filters" role="group" aria-label="Filter events">
       <button type="button" data-f="all" aria-pressed="true">All</button>
@@ -1813,6 +1894,43 @@ footer .wrap { padding-block: 3.2rem 2rem; gap: 2rem; }
   <div class="sb-track" aria-hidden="true"><i id="sbFill"></i></div>
   <svg id="dial" viewBox="0 0 600 340" hidden></svg>
 </div>
+<div class="qb" id="qibla">
+  <div class="qb-dial" aria-hidden="true">
+    <svg viewBox="-110 -110 220 220" id="qbSvg">
+      <defs>
+        <radialGradient id="qbG"><stop offset="0" stop-color="#123a86"/><stop offset="1" stop-color="#061a40"/></radialGradient>
+        <linearGradient id="qbN" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff1c8"/><stop offset="1" stop-color="#c48c1c"/></linearGradient>
+      </defs>
+      <g id="qbRose">
+        <circle r="100" fill="url(#qbG)" stroke="rgba(240,188,76,.45)" stroke-width="1.2"/>
+        <circle r="86" fill="none" stroke="rgba(240,188,76,.18)" stroke-width="1"/>
+        <g id="qbTicks"></g>
+        <text y="-70" text-anchor="middle" font-size="13" font-weight="800" fill="#f0bc4c">N</text>
+        <text x="73" y="5" text-anchor="middle" font-size="11" font-weight="700" fill="#a7b3cf">E</text>
+        <text y="80" text-anchor="middle" font-size="11" font-weight="700" fill="#a7b3cf">S</text>
+        <text x="-73" y="5" text-anchor="middle" font-size="11" font-weight="700" fill="#a7b3cf">W</text>
+        <g id="qbNeedle">
+          <path d="M0 -78 L7 -6 L0 2 L-7 -6 Z" fill="url(#qbN)"/>
+          <path d="M0 2 L5 30 L0 36 L-5 30 Z" fill="rgba(240,188,76,.3)"/>
+          <g transform="translate(0 -92)"><rect x="-8" y="-8" width="16" height="16" rx="1.5" fill="#0b0b0b" stroke="#f0bc4c" stroke-width="1.2"/><rect x="-8" y="-4.5" width="16" height="2.4" fill="#f0bc4c"/></g>
+        </g>
+        <circle r="5" fill="#030c22" stroke="#f0bc4c" stroke-width="1.5"/>
+      </g>
+    </svg>
+  </div>
+  <div class="qb-body">
+    <div class="qb-head"><span class="duo-k">Qibla finder</span><span class="qb-ar" lang="ar">القبلة</span></div>
+    <p class="qb-read"><b id="qbDeg">291°</b><span id="qbDir">west-north-west</span></p>
+    <p class="qb-from">from <span id="qbPlace">Perth</span> · <span id="qbKm">7,8xx km</span> to the Ka'bah</p>
+    <div class="qb-ctl">
+      <label class="qb-search"><span class="sr">Choose a suburb or town</span><input id="qbIn" list="qbList" placeholder="Type a WA suburb or town" autocomplete="off"></label>
+      <datalist id="qbList"></datalist>
+      <button type="button" class="qb-btn" id="qbLoc">Use my location</button>
+      <button type="button" class="qb-btn gold" id="qbLive">Live compass</button>
+    </div>
+    <p class="qb-note" id="qbNote">Bearing measured clockwise from true north. Live compass works on phones; keep away from cars and metal, and check against your masjid.</p>
+  </div>
+</div>
 <div class="mapwrap"><div class="duo-lab"><span class="duo-k">Across Western Australia</span><span class="duo-t">Places to pray</span><a class="duo-link" href="#pp-q">Search the list ↓</a></div>  <div class="pp-mapbox">
     <div class="pp-map" id="pp-map" role="application" aria-label="Map of Western Australia with places to pray"></div>
     <div class="pp-views" role="group" aria-label="Jump to an area">
@@ -1865,7 +1983,7 @@ footer .wrap { padding-block: 3.2rem 2rem; gap: 2rem; }
       <a class="btn btn-gold btn-sm" href="#membership">Join free</a>
     </div>
     <div class="f-cols">
-      <div><h4>Explore</h4><div class="f-list"><a href="#about">About</a><a href="#services">What we do</a><a href="#help">Get help</a><a href="#events">Events</a><a href="#gallery">Gallery</a></div></div>
+      <div><h4>Explore</h4><div class="f-list"><a href="#about">About</a><a href="#services">What we do</a><a href="#help">Get help</a><a href="#arrive">New to WA</a><a href="#events">Events</a><a href="#gallery">Gallery</a></div></div>
       <div><h4>Contact</h4><div class="f-list"><p class="copyrow"><span id="email">info@hawa.net.au</span><button class="copy" type="button" data-copy="email">Copy</button></p><a href="#reach">Send us a message</a><span class="fine">Address to be confirmed</span><div class="social"><a href="https://www.facebook.com/share/18tRD9BXmC/" target="_blank" rel="noopener" aria-label="HAWA on Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8.1v3h2.5V21z"/></svg>Facebook</a><a href="https://www.instagram.com/hyderabadawa/" target="_blank" rel="noopener" aria-label="HAWA on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg>Instagram</a></div></div></div>
       <div><h4>Registration</h4><div class="f-list fine"><span>Incorporated association no.: to be added</span><span>ABN: to be added</span></div></div>
     </div>
@@ -2510,6 +2628,94 @@ footer .wrap { padding-block: 3.2rem 2rem; gap: 2rem; }
     if (!map) { try { initMap(); } catch (e) { console.error(e); } } else { map.invalidateSize(); }
   };
   if (D.getElementById('today') && D.getElementById('today').classList.contains('active')) setTimeout(window.ppShow, 60);
+})();
+</script>
+<script>(function () {
+  var D = document, $ = function (id) { return D.getElementById(id); };
+  if (!$('qibla')) return;
+  var KAABA = [21.422487, 39.826206];
+  var LBL = (window.PP_DATA && window.PP_DATA.lbl) || {};
+  var rad = Math.PI / 180;
+  function bearing(lat, lng) {
+    var p1 = lat * rad, p2 = KAABA[0] * rad, dl = (KAABA[1] - lng) * rad;
+    var y = Math.sin(dl) * Math.cos(p2), x = Math.cos(p1) * Math.sin(p2) - Math.sin(p1) * Math.cos(p2) * Math.cos(dl);
+    return (Math.atan2(y, x) / rad + 360) % 360;
+  }
+  function km(lat, lng) {
+    var p1 = lat * rad, p2 = KAABA[0] * rad, dp = p2 - p1, dl = (KAABA[1] - lng) * rad;
+    var a = Math.sin(dp / 2) * Math.sin(dp / 2) + Math.cos(p1) * Math.cos(p2) * Math.sin(dl / 2) * Math.sin(dl / 2);
+    return 6371 * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  }
+  var DIRS = ['north', 'north-north-east', 'north-east', 'east-north-east', 'east', 'east-south-east', 'south-east', 'south-south-east', 'south', 'south-south-west', 'south-west', 'west-south-west', 'west', 'west-north-west', 'north-west', 'north-north-west'];
+  function title(s) { return s.toLowerCase().replace(/(^|[\s\-'(])([a-z])/g, function (m, a, b) { return a + b.toUpperCase(); }); }
+  var ticks = $('qbTicks'), NS = 'http://www.w3.org/2000/svg';
+  for (var i = 0; i < 72; i++) { var a = i * 5 * rad, big = i % 18 === 0, mid = i % 6 === 0, r1 = 98, r2 = big ? 86 : mid ? 90 : 94; var l = D.createElementNS(NS, 'line'); l.setAttribute('x1', (r1 * Math.sin(a)).toFixed(2)); l.setAttribute('y1', (-r1 * Math.cos(a)).toFixed(2)); l.setAttribute('x2', (r2 * Math.sin(a)).toFixed(2)); l.setAttribute('y2', (-r2 * Math.cos(a)).toFixed(2)); l.setAttribute('stroke', big ? 'rgba(240,188,76,.8)' : 'rgba(240,188,76,' + (mid ? .45 : .2) + ')'); l.setAttribute('stroke-width', big ? 1.6 : 1); ticks.appendChild(l); }
+  var current = { lat: -31.9523, lng: 115.8613, name: 'Perth' }, qdeg = 0, heading = null;
+  function draw() {
+    qdeg = bearing(current.lat, current.lng);
+    $('qbDeg').textContent = Math.round(qdeg) + '°';
+    $('qbDir').textContent = DIRS[Math.round(qdeg / 22.5) % 16];
+    $('qbPlace').textContent = current.name;
+    $('qbKm').textContent = Math.round(km(current.lat, current.lng)).toLocaleString('en-AU') + ' km';
+    $('qbNeedle').setAttribute('transform', 'rotate(' + qdeg.toFixed(1) + ')');
+    $('qbRose').setAttribute('transform', heading === null ? '' : 'rotate(' + (-heading).toFixed(1) + ')');
+  }
+  var names = Object.keys(LBL).sort(), byTitle = {};
+  $('qbList').innerHTML = names.map(function (k) { var t = title(k); byTitle[t.toLowerCase()] = k; return '<option value="' + t.replace(/"/g, '&quot;') + '">'; }).join('');
+  function pick() {
+    var v = $('qbIn').value.trim().toLowerCase(); var k = byTitle[v];
+    if (!k) { var m = names.filter(function (n) { return n.toLowerCase().indexOf(v) === 0; }); if (v.length > 2 && m.length === 1) k = m[0]; }
+    if (k) { current = { lat: LBL[k][0], lng: LBL[k][1], name: title(k) }; draw(); }
+  }
+  $('qbIn').addEventListener('change', pick); $('qbIn').addEventListener('input', function () { if (byTitle[$('qbIn').value.trim().toLowerCase()]) pick(); });
+  var note = $('qbNote'), baseNote = note.textContent;
+  $('qbLoc').addEventListener('click', function () {
+    if (!navigator.geolocation) { note.textContent = 'Location isn\'t available here. Type your suburb instead.'; return; }
+    note.textContent = 'Finding your location…';
+    navigator.geolocation.getCurrentPosition(function (p) { current = { lat: p.coords.latitude, lng: p.coords.longitude, name: 'your location' }; $('qbIn').value = ''; note.textContent = baseNote; draw(); },
+      function () { note.textContent = 'Location was blocked or unavailable. Type your suburb instead.'; }, { enableHighAccuracy: true, timeout: 10000, maximumAge: 300000 });
+  });
+  var live = false;
+  function onOri(e) {
+    var h = null;
+    if (typeof e.webkitCompassHeading === 'number') h = e.webkitCompassHeading;
+    else if (e.absolute && typeof e.alpha === 'number') h = (360 - e.alpha) % 360;
+    if (h === null) return;
+    var so = (screen.orientation && screen.orientation.angle) || window.orientation || 0;
+    heading = (h + so + 360) % 360; draw();
+    var diff = Math.abs(((qdeg - heading + 540) % 360) - 180);
+    $('qibla').classList.toggle('aligned', diff < 4);
+    note.textContent = diff < 4 ? 'You are facing the Qibla.' : 'Turn until the gold needle points straight up.';
+  }
+  function stopLive() { live = false; heading = null; window.removeEventListener('deviceorientationabsolute', onOri); window.removeEventListener('deviceorientation', onOri); $('qibla').classList.remove('aligned', 'live'); $('qbLive').textContent = 'Live compass'; note.textContent = baseNote; draw(); }
+  $('qbLive').addEventListener('click', function () {
+    if (live) return stopLive();
+    var start = function () {
+      live = true; $('qibla').classList.add('live'); $('qbLive').textContent = 'Stop compass';
+      window.addEventListener('ondeviceorientationabsolute' in window ? 'deviceorientationabsolute' : 'deviceorientation', onOri);
+      note.textContent = 'Hold your phone flat. Turn until the gold needle points straight up.';
+      setTimeout(function () { if (live && heading === null) { note.textContent = 'No compass found on this device. Use the bearing shown instead.'; } }, 2500);
+    };
+    if (window.DeviceOrientationEvent && typeof DeviceOrientationEvent.requestPermission === 'function') {
+      DeviceOrientationEvent.requestPermission().then(function (s) { if (s === 'granted') start(); else note.textContent = 'Compass permission was declined. Use the bearing shown instead.'; }).catch(function () { note.textContent = 'The compass isn\'t available here. Use the bearing shown instead.'; });
+    } else if ('DeviceOrientationEvent' in window) start();
+    else note.textContent = 'No compass found on this device. Use the bearing shown instead.';
+  });
+  draw();
+})();
+</script>
+<script>(function () {
+  var D = document, KEY = 'hawa-arrive-v1', st = {};
+  try { st = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { st = {}; }
+  var boxes = D.querySelectorAll('.arr-chk input'); if (!boxes.length) return;
+  function upd() {
+    var n = 0; boxes.forEach(function (b) { b.closest('.arr-item').classList.toggle('done', b.checked); if (b.checked) n++; });
+    D.getElementById('arrDone').textContent = n; D.getElementById('arrTotal').textContent = boxes.length;
+    D.getElementById('arrBar').style.width = (n / boxes.length * 100).toFixed(1) + '%';
+  }
+  boxes.forEach(function (b) { b.checked = !!st[b.dataset.k]; b.addEventListener('change', function () { st[b.dataset.k] = b.checked; try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} upd(); }); });
+  upd();
+  D.addEventListener('click', function (e) { var a = e.target.closest('[data-goto]'); if (!a) return; e.preventDefault(); var b = D.getElementById('st-arr-' + a.dataset.goto); if (b) b.click(); });
 })();
 </script>
 
