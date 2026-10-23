@@ -1387,6 +1387,33 @@ svg.leaflet-image-layer.leaflet-interactive path {
 .duo .pp-views button { padding: .38rem .7rem; font-size: .74rem; }
 @media (max-width: 960px) { .duo { grid-template-columns: 1fr; } .duo .pp-mapbox { height: clamp(440px, 68vh, 640px); } }
 
+/* Lean salah strip + one big map */
+.salbar { position: relative; overflow: hidden; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 1.4rem 2rem; padding: 1.2rem 1.6rem 1.45rem; border: 1px solid var(--line-2); border-radius: var(--r); background: radial-gradient(520px circle at 0% 0%, rgba(240,188,76,.14), transparent 60%), var(--panel); box-shadow: 0 30px 60px -36px rgba(0,0,0,.9); }
+.sb-now { display: grid; gap: .15rem; min-width: 150px; }
+.sb-k { font-family: var(--caps); font-size: .68rem; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; color: var(--gold-hi); }
+.sb-now b { font-family: var(--display); font-size: 2.3rem; font-weight: 600; line-height: 1; color: #fff; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.sb-next { font-size: .84rem; font-weight: 700; color: var(--champagne); }
+.sb-times { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.sb-times li { position: relative; display: grid; justify-items: center; gap: .05rem; padding: .55rem .3rem .6rem; border-left: 1px solid var(--line); text-align: center; transition: opacity .3s; }
+.sb-times li:first-child { border-left: 0; }
+.sb-times .n { font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.sb-times .a { font-family: var(--arabic); font-size: .95rem; line-height: 1.3; color: var(--gold); }
+.sb-times .t { font-family: var(--display); font-size: 1.35rem; font-weight: 600; color: #fff; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.sb-times li.past { opacity: .5; }
+.sb-times li.sun .t { font-size: 1.1rem; color: var(--muted); }
+.sb-times li.next { background: linear-gradient(180deg, rgba(240,188,76,.16), rgba(240,188,76,.04)); border-radius: 14px; border-left-color: transparent; box-shadow: inset 0 0 0 1px rgba(240,188,76,.45); }
+.sb-times li.next + li { border-left-color: transparent; }
+.sb-times li.next .n, .sb-times li.next .t { color: var(--gold-hi); }
+.sb-times .tag { position: absolute; top: -.55rem; font-size: .6rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; background: var(--gold-hi); color: #140f03; padding: .1rem .45rem; border-radius: 999px; }
+.sb-side { display: grid; gap: .45rem; justify-items: end; max-width: 230px; }
+.sb-side small { font-size: .72rem; color: var(--dim); text-align: right; line-height: 1.35; }
+.sb-track { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: rgba(240,188,76,.12); }
+.sb-track i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #c48c1c, #fff1c8 70%, #f0bc4c); box-shadow: 0 0 12px rgba(240,188,76,.7); transition: width 1.6s cubic-bezier(.65,.05,.25,1); }
+.mapwrap { display: grid; gap: .8rem; }
+.mapwrap .pp-mapbox { height: clamp(560px, 80vh, 920px); }
+@media (max-width: 1080px) { .salbar { grid-template-columns: auto minmax(0, 1fr); } .sb-side { grid-column: 1 / -1; grid-auto-flow: column; justify-content: space-between; align-items: center; justify-items: start; max-width: none; } .sb-side small { text-align: left; } }
+@media (max-width: 720px) { .salbar { grid-template-columns: 1fr; padding: 1.1rem 1rem 1.3rem; } .sb-times { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: .6rem; } .sb-times li:nth-child(4) { border-left: 0; } .sb-side { grid-auto-flow: row; justify-items: start; } .mapwrap .pp-mapbox { height: clamp(460px, 72vh, 640px); } }
+
 /* ===== v9: feedback round 1 ===== */
 .draftbar { background: linear-gradient(90deg, #4a3410, #8a6418 50%, #4a3410); color: #fff3cf; font-size: .76rem; text-align: center; padding: .32rem 1rem; letter-spacing: .02em; }
 .draftbar b { color: #fff; }
@@ -1776,13 +1803,17 @@ footer .wrap { padding-block: 3.2rem 2rem; gap: 2rem; }
       <div class="doc glow"><b>Registration</b><span>IA number and ABN to be added.</span></div>
       <div class="doc glow"><b>Funding</b><span>Members' own contributions, donations, sponsorship and grants (clause 7c).</span></div>
     </div></div></div></div>
-<div class="view" id="today" data-title="today"><header class="ph"><svg class="ph-rz" viewBox="-500 -500 1000 1000" aria-hidden="true"><g class="pgc"></g></svg><div class="wrap ph-in"><nav class="crumb" aria-label="Breadcrumb"><a href="#home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Home</a><span>/</span><span><span id="nextLine">Salah times for Perth</span></span></nav><span class="ur" lang="ur">آج پرتھ میں</span><h1><span id="nextLine">Salah times for Perth</span></h1><p class="fine" id="todayDate" style="color:var(--champagne)">Today in Perth</p><p class="lede" id="nextSub">Gatherings are planned around salah, so no one has to choose.</p></div></header><div class="wrap vbody"><div class="pp-scope"><div class="duo"><div class="duo-col"><div class="duo-lab"><span class="duo-k">Today in Perth</span><span class="duo-t">Salah times</span></div><div class="dial-wrap glow rv">
-      <svg id="dial" viewBox="0 0 600 340" role="img" aria-label="Today's salah times in Perth along the arc of the day"></svg>
-      <div class="dial-meta">
-        <span>Muslim World League method. Follow your masjid's iqamah.</span>
-        <span class="seg" role="group" aria-label="Asr calculation"><button type="button" data-asr="2" aria-pressed="true">Asr Hanafi</button><button type="button" data-asr="1" aria-pressed="false">Asr Shafi'i</button></span>
-      </div>
-    </div></div><div class="duo-col"><div class="duo-lab"><span class="duo-k">Across Western Australia</span><span class="duo-t">Places to pray</span><a class="duo-link" href="#pp-q">Search the list ↓</a></div>  <div class="pp-mapbox">
+<div class="view" id="today" data-title="today"><header class="ph"><svg class="ph-rz" viewBox="-500 -500 1000 1000" aria-hidden="true"><g class="pgc"></g></svg><div class="wrap ph-in"><nav class="crumb" aria-label="Breadcrumb"><a href="#home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Home</a><span>/</span><span><span id="nextLine">Salah times for Perth</span></span></nav><span class="ur" lang="ur">آج پرتھ میں</span><h1><span id="nextLine">Salah times for Perth</span></h1><p class="fine" id="todayDate" style="color:var(--champagne)">Today in Perth</p><p class="lede" id="nextSub">Gatherings are planned around salah, so no one has to choose.</p></div></header><div class="wrap vbody"><div class="pp-scope"><div class="salbar" aria-label="Today's salah times in Perth">
+  <div class="sb-now"><span class="sb-k">Today in Perth</span><b id="sbNow">--:--</b><span class="sb-next" id="sbNext"></span></div>
+  <ol class="sb-times" id="sbTimes"></ol>
+  <div class="sb-side">
+    <span class="seg" role="group" aria-label="Asr calculation"><button type="button" data-asr="2" aria-pressed="true">Asr Hanafi</button><button type="button" data-asr="1" aria-pressed="false">Asr Shafi'i</button></span>
+    <small>Muslim World League method. Follow your masjid's iqamah.</small>
+  </div>
+  <div class="sb-track" aria-hidden="true"><i id="sbFill"></i></div>
+  <svg id="dial" viewBox="0 0 600 340" hidden></svg>
+</div>
+<div class="mapwrap"><div class="duo-lab"><span class="duo-k">Across Western Australia</span><span class="duo-t">Places to pray</span><a class="duo-link" href="#pp-q">Search the list ↓</a></div>  <div class="pp-mapbox">
     <div class="pp-map" id="pp-map" role="application" aria-label="Map of Western Australia with places to pray"></div>
     <div class="pp-views" role="group" aria-label="Jump to an area">
       <button type="button" data-v="wa" aria-pressed="true">All WA</button>
@@ -1794,7 +1825,7 @@ footer .wrap { padding-block: 3.2rem 2rem; gap: 2rem; }
     <div class="pp-hint">Gold suburbs have at least one place. Pins sit in the middle of the suburb, not at the exact address; use Directions for the exact spot.</div>
     <div class="pp-card" id="pp-card" hidden></div>
   </div>
-</div></div><section class="pp" id="pp">
+</div><section class="pp" id="pp">
   <div class="pp-head">
     <span class="ur" lang="ur">مساجد مغربی آسٹریلیا</span>
     <h2>Search every place to pray</h2>
@@ -2053,8 +2084,24 @@ footer .wrap { padding-block: 3.2rem 2rem; gap: 2rem; }
   }
   var NAMES = [['fajr', 'Fajr', 'الفجر'], ['sunrise', 'Sunrise', ''], ['dhuhr', 'Dhuhr', 'الظهر'], ['asr', 'Asr', 'العصر'], ['maghrib', 'Maghrib', 'المغرب'], ['isha', 'Isha', 'العشاء']];
   var asrF = 2; try { var sv = localStorage.getItem('hawa-asr'); if (sv === '1' || sv === '2') asrF = +sv; } catch (e) {}
+  function renderStrip(pt) {
+    var box = D.getElementById('sbTimes'); if (!box) return;
+    var nextK = null; for (var j = 0; j < NAMES.length; j++) { if (NAMES[j][0] !== 'sunrise' && pt[NAMES[j][0]] > nowH) { nextK = NAMES[j][0]; break; } }
+    box.innerHTML = NAMES.map(function (n) {
+      var h = pt[n[0]], cls = (n[0] === 'sunrise' ? 'sun ' : '') + (n[0] === nextK ? 'next' : (h <= nowH ? 'past' : ''));
+      return '<li class="' + cls + '"><span class="n">' + n[1] + '</span>' + (n[2] ? '<span class="a" lang="ar">' + n[2] + '</span>' : '<span class="a">&nbsp;</span>') + '<span class="t">' + fmt(h) + '</span>' + (n[0] === nextK ? '<span class="tag">Next</span>' : '') + '</li>';
+    }).join('');
+    var nx = D.getElementById('sbNext');
+    if (nextK) { var mins = Math.max(0, Math.round((pt[nextK] - nowH) * 60)), hh = Math.floor(mins / 60), mm = mins % 60, nm = NAMES.filter(function (n) { return n[0] === nextK; })[0][1]; nx.textContent = nm + ' in ' + (hh ? hh + ' hr ' : '') + mm + ' min'; }
+    else nx.textContent = 'Fajr tomorrow, in sha Allah';
+    var f = Math.max(0, Math.min(1, (nowH - pt.fajr) / (pt.isha - pt.fajr)));
+    D.getElementById('sbFill').style.width = (f * 100).toFixed(1) + '%';
+    var nowEl = D.getElementById('sbNow'); var setNow = function () { nowEl.textContent = new Intl.DateTimeFormat('en-AU', { timeZone: TZ, hour: 'numeric', minute: '2-digit' }).format(new Date()).replace(/\s?([ap])m/i, ' $1m'); };
+    setNow(); if (!renderStrip.t) renderStrip.t = setInterval(setNow, 30000);
+  }
+
   function renderDial() {
-    var pt = prayerTimes(P.year, P.month, P.day, asrF), svg = D.getElementById('dial');
+    var pt = prayerTimes(P.year, P.month, P.day, asrF), svg = D.getElementById('dial'); renderStrip(pt);
     while (svg.firstChild) svg.removeChild(svg.firstChild);
     var cx = 300, cy = 290, R = 236, t0 = pt.fajr, t1 = pt.isha;
     function ang(h) { return Math.PI - Math.max(0, Math.min(1, (h - t0) / (t1 - t0))) * Math.PI; }
