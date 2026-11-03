@@ -2388,6 +2388,18 @@ footer .wrap { padding-block: 3.2rem 2rem; gap: 2rem; }
     // RSVPs close at the end of Tue 10 Nov 2026, Perth time (= 16:00 UTC). Add ?rsvp=closed to preview the closed view.
     var CLOSES = Date.UTC(2026, 10, 10, 16, 0, 0);
     function isClosed() { return Date.now() >= CLOSES || /[?&]rsvp=closed\b/.test(location.search); }
+    // PAUSED by the Committee (3 Nov 2026): set to false to reopen RSVPs.
+    var PAUSED = true;
+    function showPaused() {
+      form.hidden = true; tog.hidden = true;
+      var alt = D.querySelector('.rsvp-alt'); if (alt) alt.hidden = true;
+      var pill = D.querySelector('.rsvp-pill'); if (pill) pill.textContent = 'RSVPs paused';
+      var by = D.getElementById('rsvpBy'); if (by) by.textContent = 'RSVPs are paused for now.';
+      var db = D.getElementById('dbRsvp'); if (db) db.textContent = 'RSVPs are paused for now.';
+      var cta = D.getElementById('dbCta'); if (cta) cta.textContent = 'Event details';
+      done.textContent = 'RSVPs are paused for now. If you have already registered, your place is reserved. Please check back here soon.';
+      done.hidden = false;
+    }
     function showClosed() {
       form.hidden = true; tog.hidden = true;
       var alt = D.querySelector('.rsvp-alt'); if (alt) alt.hidden = true;
@@ -2398,6 +2410,7 @@ footer .wrap { padding-block: 3.2rem 2rem; gap: 2rem; }
       done.textContent = 'Registration is now closed. JazakAllah khair to everyone who registered. See you on Sunday 15 November.';
       done.hidden = false;
     }
+    if (PAUSED) { showPaused(); return; }
     if (isClosed()) { showClosed(); return; }
     function open(on) { form.hidden = !on; tog.setAttribute('aria-expanded', on ? 'true' : 'false'); if (on) setTimeout(function () { D.getElementById('rName').focus({ preventScroll: true }); }, 50); }
     tog.addEventListener('click', function () { open(form.hidden); });
@@ -2407,6 +2420,7 @@ footer .wrap { padding-block: 3.2rem 2rem; gap: 2rem; }
     Object.keys(F).forEach(function (k) { F[k].addEventListener('input', function () { F[k].removeAttribute('aria-invalid'); }); });
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      if (PAUSED) { showPaused(); return; }
       if (isClosed()) { showClosed(); return; }
       var name = F.name.value.trim(), email = F.email.value.trim(), mobile = F.mobile.value.trim(), bad = [];
       if (!name) bad.push([F.name, 'Add your full name.']);
